@@ -434,6 +434,7 @@ static void dmz_handle_bio(struct dmz_target *dmz, struct dm_chunk_work *cw,
 		ret = dmz_handle_read(dmz, zone, bio);
 		break;
 	case REQ_OP_WRITE:
+        
 		ret = dmz_handle_write(dmz, zone, bio);
 		break;
 	case REQ_OP_DISCARD:

@@ -284,7 +284,9 @@ enum {
 				 * of this bio. */
 	BIO_CGROUP_ACCT,	/* has been accounted to a cgroup */
 	BIO_TRACKED,		/* set if bio goes through the rq_qos path */
-	BIO_FLAG_LAST
+	BIO_FLAG_LAST,
+    BIO_EXT4_FILE,      /*  figure ext4 file data */
+    BIO_EXT4_JRNL       /* figure ext4 journal data */
 };
 
 /* See BVEC_POOL_OFFSET below before adding new flags */
