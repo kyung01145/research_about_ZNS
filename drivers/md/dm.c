@@ -1371,6 +1371,10 @@ static int clone_bio(struct dm_target_io *tio, struct bio *bio,
 	int r;
 
 	__bio_clone_fast(clone, bio);
+    if (bio_flagged(bio, BIO_EXT4_FLAG))
+        bio_set_flag(clone, BIO_EXT4_FLAG) ;
+    if (bio_flagged(bio, BIO_JRNL_FLAG))
+        bio_set_flag(clone, BIO_JRNL_FLAG) ;
 
 	r = bio_crypt_clone(clone, bio, GFP_NOIO);
 	if (r < 0)
